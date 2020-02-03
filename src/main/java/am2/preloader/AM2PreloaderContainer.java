@@ -10,6 +10,7 @@ import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
@@ -22,7 +23,7 @@ public class AM2PreloaderContainer extends DummyModContainer implements IFMLLoad
 	private static boolean foundOptiFine = false;
 	private static boolean confirmedOptiFine = false;
 	public static boolean foundDragonAPI = false;
-	
+
 	public static boolean isDevEnvironment = false;
 
 	public AM2PreloaderContainer(){
@@ -84,7 +85,7 @@ public class AM2PreloaderContainer extends DummyModContainer implements IFMLLoad
 
 	@Override
 	public void injectData(Map<String, Object> data){
-		if (((String)data.get("coremodList")).contains("DragonAPIASMHandler")){
+		if (((List<String>)data.get("coremodList")).contains("DragonAPIASMHandler")){
 			LogHelper.info("Core: Located DragonAPI in list of coremods");
 			foundDragonAPI = true;
 		}
